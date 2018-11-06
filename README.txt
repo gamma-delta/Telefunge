@@ -1,7 +1,7 @@
 TELEFUNGE
 
 Concepts:
-2-D grid on which a turtle crawls. Starts at (0,0) in upper right, or at @
+2-D grid on which a turtle crawls. Starts at (0,0) in upper right, or at @, pointing up.
 The turtle takes a step, then reads instructions from the space it is standing on.
 The turtle has a stack of ints. It has 1000 cells. For maximum turing-completeness, change to infinity.
 There is also an auxillary stack like the turtle's. It is more limited (you can't do math on it for example)
