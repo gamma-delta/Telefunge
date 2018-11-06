@@ -1,0 +1,50 @@
+TELEFUNGE
+
+Concepts:
+2-D grid on which a turtle crawls. Starts at the first @ symbol (or 0,0 if there isn't one)
+Each tick, the turtle moves forward, then executes the action it is standing on.
+If the turtle goes outside the grid, it wraps around.
+The turtle has a stack of ints. It is pretty deep (1000).
+There is also an auxillary stack, same as the turtle but it doesn't move. It is more limited.
+They are both initialized to a lot of 0s.
+
+Instuctions:
+@ Start position. If there are multiples the program explodes.
+. End program
+
+^ Turn up
+> Turn right
+V Turn down
+< Turn left
+| If first slot in turtle stack != 0, go up; else go down
+_ If first slot in turtle stack != 0, go left; else go right
+? Turn random
+
+# Start/stop pushing hex numbers to turtle stack (0-F -> 0-15)
+" Start/stop pushing ASCII text to turtle stack. Will format stuff like \n, but you can't do like \\n to get \n.
+: Pop and display ASCII from turtle
+; Pop and display number from turtle
+
++ Pop a,b from turtle; push a+b
+- Pop a,b; push a-b
+* Pop a,b; push a*b
+/ Pop a,b; push a/b (floored)
+% Pop a,b; push a%b (mod)
+R Raise front of turtle stack by 1
+L Lower front of turtle stack by 1
+
+P Pop turtle stack
+p Pop aux stack
+S Pop from turtle and push to aux
+s Pop from aux and push to turtle
+C Copy from turtle and push to aux
+c Copy from aux and push to turtle
+W Swap turtle and aux fronts
+
+T Pop a,b from turtle; teleport to those coords (a,b). If it overflows, modulus by grid size.
+t Pop a,b from aux; teleport to those coords. See above.
+
+X Turn on hexadecimal display (default)
+x Turn off hexadecimal display
+
+Everything else is ignored.
