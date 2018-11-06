@@ -3,8 +3,8 @@ TELEFUNGE
 Concepts:
 2-D grid on which a turtle crawls. Starts at (0,0) in upper right
 The turtle reads instructions from the space it is standing on, then moves forward.
-The turtle has a stack of bytes (0-255). It is infinitely deep.
-There is also an auxillary stack, same as the turtle.
+The turtle has a stack of bytes (0-255). It has 1000 cells. For maximum turing-completeness, change to infinity.
+There is also an auxillary stack like the turtle's. It is more limited (you can't do math on it for example)
 They are both initialized to a lot of 0s.
 
 Instuctions:
@@ -19,7 +19,7 @@ V Turn down
 _ If first slot is 0, go right; else go left
 ? Turn random
 
-# Start/stop pushing hex numbers to turtle stack (in 2-char blocks)
+# Start/stop pushing hex numbers to turtle stack (0-F)
 " Start/stop pushing ASCII text to turtle stack. Formats based on \n (maybe)
 
 + Pop a,b from turtle; push a+b
