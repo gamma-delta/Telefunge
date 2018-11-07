@@ -22,7 +22,8 @@ _ If first slot is 0, go right; else go left
 ? Turn random
 
 # Start/stop pushing hex numbers to turtle stack (0-F)
-" Start/stop pushing ASCII text to turtle stack. Formats based on \n (maybe)
+" Start/stop pushing ASCII text to turtle stack. Formats based on \n.
+$ Get input from cin (one line) and push it backwards to turtle stack.
 
 + Pop a,b from turtle; push a+b
 - Pop a,b; push a-b

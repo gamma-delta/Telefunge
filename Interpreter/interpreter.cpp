@@ -5,6 +5,7 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<algorithm>
 
 #include<cstdlib>
 #include<ctime>
@@ -101,6 +102,14 @@ bool interpret() {
 			case '#':
 				is_reading_ints = true;
 				break;
+			case '$': {
+				string input;
+				getline(cin, input);
+				reverse(input.begin(), input.end());
+				for (auto c: input) if (c != '\0') turtle_stack.push_front(c);
+				break;
+			}
+
 			case ':':
 				cout << (char) turtle_stack.front();
 				turtle_stack.pop_front();
