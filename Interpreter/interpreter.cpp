@@ -32,28 +32,28 @@ bool interpret() {
 		int instruction = get_standing_instruction();
 
 		if (is_reading_text) { //I'm between two quotes
-			if (instruction == '"')
-				is_reading_text = false; //found the other one
-			else {
-				if (instruction == '\\') { //ooh, special characters
-					char special_char = '\0';
-					bool is_special = true;
-					switch (previous) {
-					default:
-						is_special = false;
-						break;
-					case 'n':
-						special_char = '\n';
-						break;
-					}
-					if (is_special) {
-						turtle_stack.pop_front();
-						turtle_stack.push_front(special_char);
-					} else
-						turtle_stack.push_front(instruction);
+			if (instruction == '\\') { //ooh, special characters
+				char special_char = '\0';
+				bool is_special = true;
+				switch (previous) {
+				default:
+					is_special = false;
+					break;
+				case 'n':
+					special_char = '\n';
+					break;
+				case '"':
+					special_char = '"';
+					break;
+				}
+				if (is_special) {
+					turtle_stack.pop_front();
+					turtle_stack.push_front(special_char);
 				} else
 					turtle_stack.push_front(instruction);
-			}
+			} else if (instruction == '"') //close
+				is_reading_text = false;
+			else turtle_stack.push_front(instruction);
 		} else if (is_reading_ints) {
 			if (instruction == '#')
 				is_reading_ints = false;
